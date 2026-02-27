@@ -1,11 +1,12 @@
-import { notStrictEqual } from 'assert';
-import { LargeNumberLike } from 'crypto';
+// This file contains the two Mongoose schemas: Patient and Session.
+// Patient: static demographic + prescription data (changes rarely)
+// Session: per-treatment data (created once, updated during/after treatment)
+
 import mongoose, { Schema, Document, Types } from 'mongoose';
-import { machine } from 'os';
 
 // PATIENT
 
-export interface IPatient extends Document {
+export interface IPatient extends Document { // Required fields for Patient Background
     mrn: string;
     name: string;
     dateOfBirth: Date;
@@ -44,10 +45,10 @@ export interface IAnomaly {
     type: string;
     message: string;
     value: number;
-    threshold: number;
+    threshold: number; // If value exceeds or is below the threshold, then it will generate anomaly
 }
 
-export interface ISession extends Document {
+export interface ISession extends Document { // This will contain the session information of the patient. A patient can have multiple sessions.
     patientId: Types.ObjectId;
     unit: string;
     machineId: string;
