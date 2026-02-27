@@ -34,10 +34,10 @@ export interface AnomalyConfig {
 }
 
 export const DEFAULT_CONFIG: AnomalyConfig = { // These are the threshold values that I have assumed as per the above reasoning
-    maxIDWG: 3.5,
+    maxIDWG: 3.5, // Doubt
     maxPostSystolicBP: 150, 
     minDurationFraction: 0.80,
-    maxDurationFraction: 1.20,
+    maxDurationFraction: 1.20, // Doubt
 }
 
 // Detection
