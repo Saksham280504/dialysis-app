@@ -27,7 +27,7 @@ export interface IPatient {
     targetDuration: number;
 }
 
-export type SessionStatus = 'not_started' | 'in_progess' | 'completed';
+export type SessionStatus = 'not_started' | 'in_progress' | 'completed';
 
 export interface ISession {
     _id: string;
