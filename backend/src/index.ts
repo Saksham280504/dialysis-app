@@ -21,7 +21,7 @@ async function seed() {
   const patientCount = await Patient.countDocuments();
   const sessionCount = await Session.countDocuments();
 
-  if (patientCount > 0 || sessionCount > 0) {
+  if (patientCount > 0 && sessionCount > 0) {
     console.log('Database already seeded.');
     return;
   }
