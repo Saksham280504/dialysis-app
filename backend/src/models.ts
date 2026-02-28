@@ -104,6 +104,6 @@ const SessionSchema = new Schema<ISession>(
     { timestamps: true }
 );
 
-SessionSchema.index({PatientId: 1, scheduledDate: 1 }, { unique: true });
+SessionSchema.index({patientId: 1, scheduledDate: 1 }, { unique: true });
 
 export const Session = mongoose.model<ISession>('Session', SessionSchema);

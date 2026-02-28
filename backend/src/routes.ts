@@ -19,7 +19,7 @@ router.post('/patients', async (req: Request, res: Response) => {
 // GET /api/patients - list all patients
 router.get('/patients', async (_req: Request, res: Response) => {
     try {
-        const patients = Patient.find().sort({name: 1});
+        const patients = await Patient.find().sort({name: 1});
         res.json(patients);
     }
     catch (err: any) {
@@ -65,7 +65,7 @@ router.post('/sessions', async (req: Request, res: Response) => {
         const populated = await Session.findById(session._id).populate('patientId','name mrn dryWeight targetDuration');
         res.status(201).json(populated);
     } catch (err: any) {
-        res.status(400).json({error: err});
+        res.status(400).json({error: err.message});
     }
 });
 

@@ -18,9 +18,15 @@ app.use('/api', router);
 // Seed Data
 
 async function seed() {
-    const count = await Patient.countDocuments();
-    if(count > 0) return; // Already seeded
-    console.log('Seeding demo data...');
+  const patientCount = await Patient.countDocuments();
+  const sessionCount = await Session.countDocuments();
+
+  if (patientCount > 0 || sessionCount > 0) {
+    console.log('Database already seeded.');
+    return;
+  }
+
+  console.log('Seeding demo data...');
 
 const patients = await Patient.insertMany([
     { mrn: 'MRN-001', name: 'Alice Nguyen', dateOfBirth: new Date('1962-03-15'), gender: 'female', dryWeight: 62.5, unit: 'Unit-A', machineId: 'HD-01', scheduledDays: ['Monday','Wednesday','Friday'], targetDuration: 240 },

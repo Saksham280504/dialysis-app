@@ -24,6 +24,13 @@ export const getPatientbyId = (id: string): Promise<IPatient> => request<IPatien
 
 export const getTodaySessions = (unit?: string): Promise<ISession[]> => request<ISession[]>(`/sessions/today${unit ? `?unit=${unit}`: ''}`);
 
+export async function getAllSessions(unit?: string) {
+  const query = unit ? `?unit=${unit}` : '';
+  const res = await fetch(`/api/sessions${query}`);
+  if (!res.ok) throw new Error('Failed to fetch sessions');
+  return res.json();
+}
+
 export const getSessions = (params: {
     patientId?: string;
     unit?: string;

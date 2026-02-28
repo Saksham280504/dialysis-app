@@ -1,6 +1,6 @@
 import { useState, useEffect, useCallback } from 'react';
 import { ISession, IPatient } from './types';
-import { getTodaySessions, getPatients, getUnits } from './api/client';
+import { getAllSessions, getPatients, getUnits } from './api/client';
 import SessionCard from './components/SessionCard';
 import AddSessionModal from './components/AddSessionModal';
 
@@ -32,7 +32,7 @@ export default function App() {
     setLoading(true);
     setErrors([]);
     const results = await Promise.allSettled([
-      getTodaySessions(unit || undefined),
+      getAllSessions(unit || undefined),
       getPatients(),
       getUnits(),
     ]);
@@ -85,6 +85,9 @@ export default function App() {
       <span style={{ fontSize: 11, marginTop: 2 }}>{label}</span>
     </button>
   );
+
+  console.log("Patients:", patients.length);
+  console.log("Sessions:", sessions.length);
 
   return (
     <div style={{ background: C.bg, minHeight: '100vh', color: C.text, fontFamily: "'Segoe UI', system-ui, sans-serif" }}>
