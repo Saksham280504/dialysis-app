@@ -1,0 +1,64 @@
+/* ─── CSS Variables (Design Tokens) ─────────────────────────────────────────── */
+:root {
+  --bg:           #0d1117;
+  --surface:      #161b22;
+  --surface2:     #1c2330;
+  --surface3:     #242d3a;
+  --border:       #2a3441;
+  --border2:      #374151;
+
+  --text:         #e6edf3;
+  --text2:        #8b9ab0;
+  --text3:        #5a6879;
+
+  --teal:         #00d4aa;
+  --teal-dim:     rgba(0, 212, 170, 0.12);
+  --teal-border:  rgba(0, 212, 170, 0.3);
+
+  --amber:        #f59e0b;
+  --amber-dim:    rgba(245, 158, 11, 0.12);
+  --amber-border: rgba(245, 158, 11, 0.3);
+
+  --red:          #f85149;
+  --red-dim:      rgba(248, 81, 73, 0.12);
+  --red-border:   rgba(248, 81, 73, 0.3);
+
+  --blue:         #58a6ff;
+  --blue-dim:     rgba(88, 166, 255, 0.12);
+
+  --green:        #3fb950;
+  --green-dim:    rgba(63, 185, 80, 0.12);
+
+  --radius:       10px;
+  --font-mono:    'Fira Code', 'Cascadia Code', monospace;
+  --font-sans:    'Segoe UI', system-ui, -apple-system, sans-serif;
+}
+
+/* ─── Reset ──────────────────────────────────────────────────────────────────── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font-sans);
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+
+button { font-family: inherit; }
+input, textarea, select { font-family: inherit; color: var(--text); }
+
+/* ─── Scrollbar ──────────────────────────────────────────────────────────────── */
+::-webkit-scrollbar { width: 6px; height: 6px; }
+::-webkit-scrollbar-track { background: var(--surface); }
+::-webkit-scrollbar-thumb { background: var(--border2); border-radius: 3px; }
+
+/* ─── Utilities ──────────────────────────────────────────────────────────────── */
+.mono { font-family: var(--font-mono); }
+.label {
+  font-size: 10px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--text3);
+}
